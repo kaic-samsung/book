@@ -1,0 +1,12 @@
+./xercesc/util/PlatformUtils.hpp:217:36: error: unknown type name 'FileHandle'
+  217 |     static unsigned int curFilePos(FileHandle theFile
+
+simulator/simutil.h:355:11: error: use of undeclared identifier 'gcvt'
+  355 |    return gcvt(t,16,buf);
+      |           ^
+
+In file included from doio.c:27:
+./perl.h:1099:13: fatal error: 'arpa/inet.h' file not found
+ 1099 | #   include <arpa/inet.h>
+      |             ^~~~~~~~~~~~~
+1 error generated.
