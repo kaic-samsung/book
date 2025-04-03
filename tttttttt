@@ -1,0 +1,24 @@
+cmake \
+-DCMAKE_SYSTEM_NAME=Linux \
+-DCMAKE_SYSTEM_PROCESSOR=riscv64 \
+-DCMAKE_C_COMPILER=zcc \
+-DCMAKE_CXX_COMPILER=z++ \
+-DCMAKE_C_FLAGS="-march=rv64gc -mabi=lp64d" \
+-DCMAKE_CXX_FLAGS="-march=rv64gc -mabi=lp64d" \
+-DCMAKE_BUILD_TYPE=Release \
+-DBUILD_SHARED_LIBS=OFF \
+..
+
+
+-- The C compiler identification is Clang 19.0.0
+-- The CXX compiler identification is Clang 19.0.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - failed
+-- Check for working C compiler: /home1/chengkai/toolchain/zcc/zccpro/zcc-pro-linux/bin/zcc
+-- Check for working C compiler: /home1/chengkai/toolchain/zcc/zccpro/zcc-pro-linux/bin/zcc - broken
+CMake Error at /usr/share/cmake-3.22/Modules/CMakeTestCCompiler.cmake:69 (message):
+  The C compiler
+
+    "/home1/chengkai/toolchain/zcc/zccpro/zcc-pro-linux/bin/zcc"
+
+  is not able to compile a simple test program.
