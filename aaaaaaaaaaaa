@@ -14,3 +14,7 @@ fatal error: error in backend: Cannot select: 0x610686f41b00: nxv16i8 = RISCVISD
     0x610687a9e5c0: nxv16f32 = RISCVISD::VFMV_V_F_VL undef:nxv16f32, 0x6106871df3c0, 0x61068739acb0
       0x610687ce3600: nxv16f32 = undef
       0x6106871df3c0: f32,ch = CopyFromReg 0x6106875d75a0, Register:f32 %4
+
+make[2]: *** [ggml/src/CMakeFiles/ggml-base.dir/build.make:146: ggml/src/CMakeFiles/ggml-base.dir/ggml-quants.c.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:1690: ggml/src/CMakeFiles/ggml-base.dir/all] Error 2
+make: *** [Makefile:146: all] Error 2
