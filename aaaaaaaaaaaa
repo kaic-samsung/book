@@ -1,20 +1,37 @@
-[  2%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml.c.o
-[  2%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml-quants.c.o
-PLEASE submit a bug report to https://support.terapines.com/ and include the crash backtrace, preprocessed source, and associated run script.
+../configure \
+--prefix=/home1/ffmpeg/install_zcc_o2/ \
+--disable-ffplay --disable-doc --arch=riscv \
+--sysroot=/home1/toolchain/zcc/zccpro/zcc-pro-linux/sysroot \
+--extra-cflags="-march=rv64gc -mabi=lp64d" --extra-cflags="-O2 -fno-vectorize -fno-slp-vectorize -static" --extra-ldflags="-static" \
+--cross-prefix=/home1/toolchain/zcc/zccpro/zcc-pro-linux/bin/llvm- --cc=zcc --cxx=z++ --enable-static --enable-cross-compile --target-os=linux --enable-rvv \
+--extra-cflags="-I/home1/toolchain/zcc/zccpro/zcc-pro-linux/include -fpic" \
+--extra-ldflags="-L/home1/toolchain/zcc/zccpro/zcc-pro-linux/lib"
 
-zcc: error: clang frontend command failed with exit code 139 (use -v to see invocation)
-Terapines LTD ZCC Pro 3.2.5 (296d9e548a76f86e6da2e6f59bf3074579d2c89d) based on LLVM 18.1.0
-Target: riscv64-unknown-linux-gnu
-Thread model: posix
+AR      libavcodec/libavcodec.a
+LD      ffprobe_g
+ld.lld: error: undefined symbol: rmdir
+>>> referenced by file.c:295 (src/libavformat/file.c:295)
+>>>               file.o:(file_delete) in archive libavformat/libavformat.a
+>>> referenced by smoothstreamingenc.c:306 (src/libavformat/smoothstreamingenc.c:306)
+>>>               smoothstreamingenc.o:(ism_write_trailer) in archive libavformat/libavformat.a
+>>> referenced by smoothstreamingenc.c:315 (src/libavformat/smoothstreamingenc.c:315)
+>>>               smoothstreamingenc.o:(ism_flush) in archive libavformat/libavformat.a
+>>> referenced 1 more times
 
-make[2]: *** [ggml/src/CMakeFiles/ggml-base.dir/build.make:76: ggml/src/CMakeFiles/ggml-base.dir/ggml.c.o] Error 1
-make[2]: *** Waiting for unfinished jobs....
-fatal error: error in backend: Cannot select: 0x610686f41b00: nxv16i8 = RISCVISD::VFCVT_RM_X_F_VL 0x610687d5b8e0, 0x610687ca7b50, TargetConstant:i64<4>, 0x61068739acb0, ggml/src/ggml-quants.c:214:26
-  0x610687d5b8e0: nxv16f32 = RISCVISD::FMUL_VL 0x610687a9e5c0, 0x6106872dd1f0, undef:nxv16f32, 0x610687ca7b50, 0x61068739acb0, ggml/src/ggml-quants.c:212:44
-    0x610687a9e5c0: nxv16f32 = RISCVISD::VFMV_V_F_VL undef:nxv16f32, 0x6106871df3c0, 0x61068739acb0
-      0x610687ce3600: nxv16f32 = undef
-      0x6106871df3c0: f32,ch = CopyFromReg 0x6106875d75a0, Register:f32 %4
+ld.lld: error: undefined symbol: mkdir
+>>> referenced by utils.c:0 (src/libavformat/utils.c:0)
+>>>               utils.o:(ff_mkdir_p) in archive libavformat/libavformat.a
+>>> referenced by utils.c:116 (src/libavformat/utils.c:116)
+>>>               utils.o:(ff_mkdir_p) in archive libavformat/libavformat.a
+>>> referenced by smoothstreamingenc.c:287 (src/libavformat/smoothstreamingenc.c:287)
+>>>               smoothstreamingenc.o:(ism_write_header) in archive libavformat/libavformat.a
+>>> referenced 2 more time
 
-make[2]: *** [ggml/src/CMakeFiles/ggml-base.dir/build.make:146: ggml/src/CMakeFiles/ggml-base.dir/ggml-quants.c.o] Error 1
-make[1]: *** [CMakeFiles/Makefile2:1690: ggml/src/CMakeFiles/ggml-base.dir/all] Error 2
-make: *** [Makefile:146: all] Error 2
+ld.lld: error: undefined symbol: dup
+>>> referenced by file.c:303 (src/libavformat/file.c:303)
+>>>               file.o:(pipe_open) in archive libavformat/libavformat.a
+>>> referenced by file.c:0 (src/libavformat/file.c:0)
+>>>               file.o:(fd_open) in archive libavformat/libavformat.a
+zcc: error: ld command failed with exit code 1 (use -v to see invocation)
+make: *** [/home1/ffmpeg/FFmpeg/Makefile:133: ffprobe_g] Error 1
+
