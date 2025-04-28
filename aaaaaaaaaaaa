@@ -1,37 +1,7 @@
-../configure \
---prefix=/home1/ffmpeg/install_zcc_o2/ \
---disable-ffplay --disable-doc --arch=riscv \
---sysroot=/home1/toolchain/zcc/zccpro/zcc-pro-linux/sysroot \
---extra-cflags="-march=rv64gc -mabi=lp64d" --extra-cflags="-O2 -fno-vectorize -fno-slp-vectorize -static" --extra-ldflags="-static" \
---cross-prefix=/home1/toolchain/zcc/zccpro/zcc-pro-linux/bin/llvm- --cc=zcc --cxx=z++ --enable-static --enable-cross-compile --target-os=linux --enable-rvv \
---extra-cflags="-I/home1/toolchain/zcc/zccpro/zcc-pro-linux/include -fpic" \
---extra-ldflags="-L/home1/toolchain/zcc/zccpro/zcc-pro-linux/lib"
 
-AR      libavcodec/libavcodec.a
-LD      ffprobe_g
-ld.lld: error: undefined symbol: rmdir
->>> referenced by file.c:295 (src/libavformat/file.c:295)
->>>               file.o:(file_delete) in archive libavformat/libavformat.a
->>> referenced by smoothstreamingenc.c:306 (src/libavformat/smoothstreamingenc.c:306)
->>>               smoothstreamingenc.o:(ism_write_trailer) in archive libavformat/libavformat.a
->>> referenced by smoothstreamingenc.c:315 (src/libavformat/smoothstreamingenc.c:315)
->>>               smoothstreamingenc.o:(ism_flush) in archive libavformat/libavformat.a
->>> referenced 1 more times
+march="rv64gc_zba_zbb_zbc_zbs_zca_zcd"
+march_v=""
 
-ld.lld: error: undefined symbol: mkdir
->>> referenced by utils.c:0 (src/libavformat/utils.c:0)
->>>               utils.o:(ff_mkdir_p) in archive libavformat/libavformat.a
->>> referenced by utils.c:116 (src/libavformat/utils.c:116)
->>>               utils.o:(ff_mkdir_p) in archive libavformat/libavformat.a
->>> referenced by smoothstreamingenc.c:287 (src/libavformat/smoothstreamingenc.c:287)
->>>               smoothstreamingenc.o:(ism_write_header) in archive libavformat/libavformat.a
->>> referenced 2 more time
 
-ld.lld: error: undefined symbol: dup
->>> referenced by file.c:303 (src/libavformat/file.c:303)
->>>               file.o:(pipe_open) in archive libavformat/libavformat.a
->>> referenced by file.c:0 (src/libavformat/file.c:0)
->>>               file.o:(fd_open) in archive libavformat/libavformat.a
-zcc: error: ld command failed with exit code 1 (use -v to see invocation)
-make: *** [/home1/ffmpeg/FFmpeg/Makefile:133: ffprobe_g] Error 1
-
+gcc_cflags="-march=rv64gc_zba_zbb_zbc_zbs_zca_zcd -mabi=lp64d -O3 -fno-tree-vectorize -static"
+gcc_v_cflags="-march=rv64gcv_zba_zbb_zbc_zbs_zca_zcd -mabi=lp64d -O3 -ftree-vectorize -ftree-slp-vectorize -mrvv-max-lmul=dynamic -fopt-info-vec-optimized -static"
